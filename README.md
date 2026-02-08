@@ -72,8 +72,8 @@ mv example.env.local .env.local   # If an example exists
 NEXT_PUBLIC_TAMBO_API_KEY=your_tambo_api_key_here
 ```
 
-> You can get a free API key at [Tambo Cloud](https://cloud.tambo.co).
-> **Important:** Never commit `.env.local` to GitHub — it’s already in `.gitignore`.
+> Get a free API key.
+> **Important:** Never commit `.env.local` to GitHub - it’s already in `.gitignore`.
 
 ### 5️⃣ Run the Project Locally
 
