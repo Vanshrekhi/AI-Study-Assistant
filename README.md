@@ -1,131 +1,224 @@
-# Tambo Template
 
-This is a starter NextJS app with Tambo hooked up to get your AI app development started quickly.
+# StudentIQ — AI Study Assistant
 
-## Get Started
+**StudentIQ** is an AI-powered academic assistant designed to help college students 
+* 💡 Understand concepts clearly
+* 📝 Generate revision notes
+* ❓ Practice quizzes
+* 📅 Plan study schedules
 
-1. Run `npm create-tambo@latest my-tambo-app` for a new project
+All via **natural conversation**!
 
-2. `npm install`
 
-3. `npx tambo init`
+It supports subjects like **DSA, DBMS, Operating Systems, Computer Networks, and Web Development**, offering instant guidance in simple, step-by-step explanations.
 
-- or rename `example.env.local` to `.env.local` and add your tambo API key you can get for free [here](https://tambo.co/dashboard).
+---
 
-4. Run `npm run dev` and go to `localhost:3000` to use the app!
+## 🎯 Features
 
-## Customizing
+* **Doubt Solver:** Ask questions and get simple, step-by-step answers
+* **Revision Notes:** Quickly summarize topics for exams
+* **Quiz Generator:** Automatically generate quizzes to test knowledge
+* **Study Planner:** Personalized timetable based on subjects & available time
 
-### Change what components tambo can control
+**Example Queries:**
 
-You can see how components are registered with tambo in `src/lib/tambo.ts`:
+* "Explain Operating System deadlock in simple words"
+* "Make revision notes for DBMS normalization"
+* "Create a quiz on Computer Networks"
+* "Plan my study schedule for 5 days (OS, DBMS, CN)"
 
-```tsx
-export const components: TamboComponent[] = [
-  {
-    name: "Graph",
-    description:
-      "A component that renders various types of charts (bar, line, pie) using Recharts. Supports customizable data visualization with labels, datasets, and styling options.",
-    component: Graph,
-    propsSchema: graphSchema,
-  },
-  // Add more components here
-];
-```
+---
 
-You can install the graph component into any project with:
+## 🚀 Quick Start Guide
+
+Follow these steps to get the project running locally on your machine.
+
+### 1️⃣ Clone the Repository
 
 ```bash
-npx tambo add graph
+git clone https://github.com/vaishnavi-parodkar/studentiqAgent.git
+cd studentiqAgent
 ```
 
-The example Graph component demonstrates several key features:
+### 2️⃣ Install Dependencies
 
-- Different prop types (strings, arrays, enums, nested objects)
-- Multiple chart types (bar, line, pie)
-- Customizable styling (variants, sizes)
-- Optional configurations (title, legend, colors)
-- Data visualization capabilities
-
-Update the `components` array with any component(s) you want tambo to be able to use in a response!
-
-You can find more information about the options [here](https://docs.tambo.co/concepts/generative-interfaces/generative-components)
-
-### Add tools for tambo to use
-
-Tools are defined with `inputSchema` and `outputSchema`:
-
-```tsx
-export const tools: TamboTool[] = [
-  {
-    name: "globalPopulation",
-    description:
-      "A tool to get global population trends with optional year range filtering",
-    tool: getGlobalPopulationTrend,
-    inputSchema: z.object({
-      startYear: z.number().optional(),
-      endYear: z.number().optional(),
-    }),
-    outputSchema: z.array(
-      z.object({
-        year: z.number(),
-        population: z.number(),
-        growthRate: z.number(),
-      }),
-    ),
-  },
-];
+```bash
+npm install
+npm install @tambo-ai/react
 ```
 
-Find more information about tools [here.](https://docs.tambo.co/concepts/tools)
+> This installs all necessary packages for Next.js and Tambo AI integration.
 
-### The Magic of Tambo Requires the TamboProvider
+### 3️⃣ Initialize Tambo
 
-Make sure in the TamboProvider wrapped around your app:
+```bash
+npx tambo init
+```
+
+> Initializes the Tambo project locally.
+
+### 4️⃣ Add Your Tambo API Key
+
+1. Rename or create `.env.local` in the root of your project:
+
+```bash
+mv example.env.local .env.local   # If an example exists
+```
+
+2. Add your **Tambo API key**:
+
+```env
+NEXT_PUBLIC_TAMBO_API_KEY=your_tambo_api_key_here
+```
+
+> You can get a free API key at [Tambo Cloud](https://cloud.tambo.co).
+> **Important:** Never commit `.env.local` to GitHub — it’s already in `.gitignore`.
+
+### 5️⃣ Run the Project Locally
+
+```bash
+npm run dev
+```
+
+Open your browser and go to [http://localhost:3000](http://localhost:3000). You should see the **StudentIQ landing page**.
+
+---
+
+## 🗂️ Project Structure
+```bash
+STUDENTIQAGENT/
+├── .codesandbox/          # Codesandbox configuration files
+├── .next/                 # Next.js build output (auto-generated)
+├── node_modules/          # Project dependencies
+├── public/                # Static assets accessible by the browser
+├── src/
+│   ├── app/               # Next.js App Router directory
+│   │   ├── chat/          # Chat-related routes and logic
+│   │   ├── interactables/ # Interactive UI routes/components
+│   │   ├── favicon.ico    # Application favicon
+│   │   ├── globals.css    # Global CSS styles
+│   │   ├── layout.tsx     # Root layout component
+│   │   ├── page.tsx       # Main landing page
+│   │   └── providers.tsx  # Global context providers
+│   ├── components/        # Reusable UI components
+│   │   ├── tambo/         # Tambo-specific components
+│   │   ├── ui/            # Shared UI primitives
+│   │   ├── ApiKeyCheck.tsx # API key validation component
+│   │   └── TamboChat.tsx  # Chat interface component
+│   ├── lib/               # Utility functions and helpers
+│   └── services/          # External service and API integrations
+├── .env.local             # Environment variables (local)
+├── .gitignore             # Files and folders ignored by Git
+├── .hintrc                # Linting configuration
+├── CLAUDE.md              # AI/LLM usage documentation
+├── eslint.config.mjs      # ESLint configuration
+├── example.env.local      # Sample environment variable file
+├── next-env.d.ts          # Next.js TypeScript declarations
+├── next.config.ts         # Next.js configuration
+├── package-lock.json      # Dependency lock file
+├── package.json           # Project metadata and scripts
+├── postcss.config.mjs     # PostCSS configuration
+├── README.md              # Project documentation
+├── tailwind.config.ts     # Tailwind CSS configuration
+└── tsconfig.json          # TypeScript configuration
+```
+---
+
+
+## 🌐 Live Demo
+
+Link: https://studentiq-agent.vercel.app/
+
+---
+
+## 🖼️ Screenshots
+### Landing Page
+<img width="1918" height="990" alt="image" src="https://github.com/user-attachments/assets/8574c2e3-e457-40c0-b9f2-abd05791466a" />
+
+### Main Page
+<img width="1910" height="1042" alt="image" src="https://github.com/user-attachments/assets/5663d57c-30b9-43f4-837d-ce9921960b86" />
+
+
+---
+## ⚙️ How It Works
+
+* **TamboProvider:** Wraps the app to provide AI functionality.
+* **Components:** Registered in `src/lib/tambo.ts` (e.g., Graph, DataCard).
+* **Tools:** Registered in `src/lib/tambo.ts` (e.g., countryPopulation, globalPopulation).
+
+Example usage of `TamboProvider`:
 
 ```tsx
-...
-<TamboProvider
-  apiKey={process.env.NEXT_PUBLIC_TAMBO_API_KEY!}
-  components={components} // Array of components to control
-  tools={tools} // Array of tools it can use
->
+<TamboProvider apiKey={process.env.NEXT_PUBLIC_TAMBO_API_KEY!}>
   {children}
 </TamboProvider>
 ```
 
-In this example we do this in the `Layout.tsx` file, but you can do it anywhere in your app that is a client component.
+> AI can now access the tools and components you registered.
 
-### Voice input
+---
 
-The template includes a `DictationButton` component using the `useTamboVoice` hook for speech-to-text input.
+## 🔧 Recommended Commands
 
-### MCP (Model Context Protocol)
+```bash
+# Install dependencies
+npm install
 
-The template includes MCP support for connecting to external tools and resources. You can use the MCP hooks from `@tambo-ai/react/mcp`:
+# Initialize Tambo
+npx tambo init
 
-- `useTamboMcpPromptList` - List available prompts from MCP servers
-- `useTamboMcpPrompt` - Get a specific prompt
-- `useTamboMcpResourceList` - List available resources
-
-See `src/components/tambo/mcp-components.tsx` for example usage.
-
-### Change where component responses are shown
-
-The components used by tambo are shown alongside the message response from tambo within the chat thread, but you can have the result components show wherever you like by accessing the latest thread message's `renderedComponent` field:
-
-```tsx
-const { thread } = useTambo();
-const latestComponent =
-  thread?.messages[thread.messages.length - 1]?.renderedComponent;
-
-return (
-  <div>
-    {latestComponent && (
-      <div className="my-custom-wrapper">{latestComponent}</div>
-    )}
-  </div>
-);
+# Run locally
+npm run dev
 ```
 
-For more detailed documentation, visit [Tambo's official docs](https://docs.tambo.co).
+---
+
+## 🌐 Deployment on Vercel
+
+1. Push your repository to GitHub.
+2. Connect the repo to [Vercel](https://vercel.com/).
+3. Add your environment variable in Vercel:
+
+```
+NEXT_PUBLIC_TAMBO_API_KEY = your_tambo_api_key_here
+```
+
+4. Deploy the app. ✅
+
+> Your API key stays secure — it is **never exposed** in the GitHub repository.
+
+---
+## 📖 Useful Links
+
+* [Tambo Documentation](https://docs.tambo.co)
+* [Tambo Cloud / API Key](https://cloud.tambo.co)
+* [Next.js Docs](https://nextjs.org/docs)
+
+
+---
+
+## 🛡️ Security Notes
+
+* `.env.local` is included in `.gitignore` to prevent API key leaks.
+* Never hardcode API keys directly in your source files.
+
+---
+
+## 📬 Contact
+
+For any queries or collaborations, feel free to connect:
+
+**Vaishnavi Parodkar**  
+📧 Email: vaishnaviparodkar@gmail.com
+🔗 GitHub: [@vaishnavi-parodkar](https://github.com/vaishnavi-parodkar)
+
+
+
+
+
+
+
+
+
+
