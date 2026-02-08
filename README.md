@@ -192,7 +192,6 @@ NEXT_PUBLIC_TAMBO_API_KEY = your_tambo_api_key_here
 ## 📖 Useful Links
 
 * [Tambo Documentation](https://docs.tambo.co)
-* [Tambo Cloud / API Key](https://cloud.tambo.co)
 * [Next.js Docs](https://nextjs.org/docs)
 
 
