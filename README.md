@@ -1,7 +1,7 @@
 
-# StudentIQ — AI Study Assistant
+# StudentiqAgent — AI Study Assistant
 
-**StudentIQ** is an AI-powered academic assistant designed to help college students 
+**StudentiqAgent** is an AI-powered academic assistant designed to help college students 
 * 💡 Understand concepts clearly
 * 📝 Generate revision notes
 * ❓ Practice quizzes
