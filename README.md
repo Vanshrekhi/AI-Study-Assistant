@@ -188,29 +188,6 @@ NEXT_PUBLIC_TAMBO_API_KEY = your_tambo_api_key_here
 
 > Your API key stays secure — it is **never exposed** in the GitHub repository.
 
----
-## 📖 Useful Links
-
-* [Tambo Documentation](https://docs.tambo.co)
-* [Next.js Docs](https://nextjs.org/docs)
-
-
----
-
-## 🛡️ Security Notes
-
-* `.env.local` is included in `.gitignore` to prevent API key leaks.
-* Never hardcode API keys directly in your source files.
-
----
-
-## 📬 Contact
-
-For any queries or collaborations, feel free to connect:
-
-**Vaishnavi Parodkar**  
-📧 Email: vaishnaviparodkar@gmail.com
-🔗 GitHub: [@vaishnavi-parodkar](https://github.com/vaishnavi-parodkar)
 
 
 
